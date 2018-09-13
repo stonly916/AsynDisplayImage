@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TestOneController.h"
+#import "BitmapXYController.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIView *myView;
@@ -50,7 +51,7 @@
 //        }
 //    });
     
-    NSArray *btnTitles = @[@"测试普通加载", @"单像素同步绘制", @"单像素异步绘制", @"异步解压图片", @"异步UIGraphic绘制", @"bitmapContext绘制"];
+    NSArray *btnTitles = @[@"测试普通加载", @"单像素同步绘制", @"单像素异步绘制", @"异步解压图片", @"异步UIGraphic绘制", @"bitmapContext绘制", @"坐标系"];
     for (NSInteger i = 0; i < btnTitles.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = 900 + i;
@@ -60,10 +61,17 @@
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
+    
+    
 }
 
 - (void)btnClick:(UIButton *)btn
 {
+    NSInteger index = btn.tag - 900;
+    if (index == 6) {
+        [self.navigationController pushViewController:[BitmapXYController new] animated:YES];
+        return;
+    }
     TestOneController *test = [TestOneController new];
     test.choosed = btn.tag - 900;
     [self.navigationController pushViewController:test animated:YES];
