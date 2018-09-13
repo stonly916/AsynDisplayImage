@@ -3,6 +3,7 @@ Asyn display image/render image/draw image with Bitmap Context
  
  简书文章地址：https://www.jianshu.com/p/9b30109b302e
  
+ 左上角零点y向下坐标系和左下角零点y向上坐标系的展示。
  测试异步绘制图片方法，也有单纯的解压图片方法等。
  
  
